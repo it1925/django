@@ -3,7 +3,7 @@ from django.db import models
 
 # Create your models here.
 def attachment_path(instance, filename):
-    return 'Arts/' + str(instance.art) + '/attachments/' + filename
+    return 'Arts/' + str(instance.name) + '/attachments/' + filename
 
 
 class Genre(models.Model):
@@ -25,7 +25,7 @@ class Art(models.Model):
         ('audio-visual', 'Audio-Visual')
     ]
     type = models.CharField(max_length=100, choices=TYPE, verbose_name='Type of art')
-    img = models.ImageField(upload_to='gallery/img/%Y/%m/%d/', blank=True, null=True, verbose_name='Image')
+    img = models.ImageField(upload_to=attachment_path, blank=True, null=True, verbose_name='Image')
     year = models.DateField(blank=True, null=True, help_text='datum', verbose_name='Date')
     genres = models.ManyToManyField(Genre, help_text='Genre')
 
