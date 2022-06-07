@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-12 bg-primary"><h1 class="text-center">Úvodní stránka</h1></div>
+</div>
+<div class="row">
+<!--    <div class="albums">-->
+        {% for album in albums %}
+        <div class="col-md-3">
+            <div class="card" style="width: 20rem;">
+                <div class="card-body">
+                <img src="../media/{{album.cover}}" style="height:12rem; width: 17rem">
+            <h5 class="card-title">{{album.name}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{album.date_of_creation}}</h6>
+                <p class="card-text">{{album.snippet}}</p>
+                <a href="{% url 'album_detail' slug=album.slug %}" class="btn btn-primary">Go-to</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+<!--    </div>-->
+</div>
+{% endblock %}

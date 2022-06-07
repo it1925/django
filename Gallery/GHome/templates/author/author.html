@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-12 bg-primary"><h1 class="text-center">Detail {{author_detail.name}}</h1></div>
+</div>
+<div class="row">
+        <div class="col-md-3">
+                <div class="card" style="width: 26rem;">
+                    <div class="card-body">
+                    <img src="/media/{{author_detail.image}}" style="height:15rem; width: 20rem">
+                    <h5 class="card-title">{{author.name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{author.slug.date_of_creation}}</h6>
+                    </div>
+                </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card-body">
+                <p class="card-text">{{author_detail.id}}</p>
+            </div>
+        </div>
+</div>
+<div class="row">
+
+</div>
+{% endblock %}

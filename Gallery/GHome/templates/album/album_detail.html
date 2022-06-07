@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-12 bg-primary"><h1 class="text-center">Detail {{album_detail.name}}</h1></div>
+</div>
+<div class="row">
+<!--    <div class="albums">-->
+        <div class="col-md-3">
+            <div class="album">
+                <div class="card" style="width: 20rem;">
+                    <div class="card-body">
+                    <img src="/media/{{album_detail.cover}}" style="height:12rem; width: 17rem">
+                    <h5 class="card-title">{{album_detail.name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{album_detail.date_of_creation}}</h6>
+                    <a href="{% url 'attachmet_detail' %}" class="btn btn-primary">View album</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card-body">
+                <p class="card-text">{{album_detail.text}}</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <img src="/media/{{album_detail.author.image}}" style="height:15rem; width: 20rem">
+            <a href="{% url 'author_detail' slug=album_detail.author%}"
+            <h3>Ahutor</h3>
+        </div>
+</div>
+<div class="row">
+
+</div>
+{% endblock %}

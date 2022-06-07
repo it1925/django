@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-12 bg-primary"><h1 class="text-center">Gallery</h1></div>
+</div>
+<div class="row">
+<!--    <div class="albums">-->
+        {% for a in attachments %}
+        <div class="col-md-3">
+            <div class="card" style="width: 20rem;">
+                <div class="card-body">
+                <img src="/media/{{a.file}}" style="height:12rem; width: 17rem">
+            <h5 class="card-title">{{a.name}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{a.album}}</h6>
+                <p class="card-text">{{a.date_of_addition}}</p>
+                </div>
+                <p class="text-center">Author:{{a.album.author}}</p>
+            </div>
+        </div>
+        {% endfor %}
+<!--    </div>-->
+</div>
+{% endblock %}
