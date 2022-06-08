@@ -12,20 +12,24 @@
                     <img src="/media/{{album_detail.cover}}" style="height:12rem; width: 17rem">
                     <h5 class="card-title">{{album_detail.name}}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{album_detail.date_of_creation}}</h6>
-                    <a href="{% url 'attachmet_detail' %}" class="btn btn-primary">View album</a>
+                    <a href="{% url 'attachmet_detail' slug=album_detail.slug %}" class="btn btn-primary">View album</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-xl-6">
             <div class="card-body">
                 <p class="card-text">{{album_detail.text}}</p>
             </div>
         </div>
         <div class="col-md-3">
-            <img src="/media/{{album_detail.author.image}}" style="height:15rem; width: 20rem">
-            <a href="{% url 'author_detail' slug=album_detail.author%}"
-            <h3>Ahutor</h3>
+            <div class="card" style="width: 20rem;">
+                    <div class="card-body">
+                    <img src="/media/{{album_detail.author.image}}" style="height:12rem; width: 17rem">
+                    <h5 class="card-title">{{album_detail.author.name}}</h5>
+                    <a href="{% url 'author_detail' slug=album_detail.author %}" class="btn btn-primary">Author</a>
+                    </div>
+            </div>
         </div>
 </div>
 <div class="row">

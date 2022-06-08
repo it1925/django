@@ -12,8 +12,8 @@ def index(request):
     return render(request, 'index.html', context={'albums': album})
 
 
-def attachmets(request):
-    attachment = Attachment.objects.all().order_by('album')
+def attachmets(request, slug):
+    attachment = Attachment.objects.all()
     return render(request, 'album/attachmet_detail.html', context={'attachments': attachment})
 
 
@@ -25,7 +25,7 @@ class AlbumDetail(DetailView):
     #     return reverse('detail', kwargs={'slug': self.object.slug})
 
 
-class AuthorDetail(ListView):
+class AuthorDetail(DetailView):
     model = Author
     context_object_name = 'author_detail'
     template_name = 'author/author.html'
